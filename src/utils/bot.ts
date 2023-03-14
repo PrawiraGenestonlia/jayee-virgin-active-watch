@@ -6,6 +6,9 @@ const createNewBot = () => {
 	const bot = new Telegraf(process.env.BOT_TOKEN || '')
 	bot.start((ctx) => ctx.reply('Welcome'))
 	bot.help((ctx) => ctx.reply('Send me a sticker'))
+	bot.command('my_id', (ctx) => {
+		void ctx.reply(JSON.stringify(ctx.message))
+	})
 	bot.command('notify', (ctx) => {
 		toNotify.setNotification(true)
 		void ctx.reply(JSON.stringify(toNotify))
