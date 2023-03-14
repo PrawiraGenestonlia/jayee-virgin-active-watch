@@ -1,0 +1,12 @@
+name: Cron job
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: cron
+        run: |
+          curl --request GET \
+          --url 'https://wira-virgin-active-watch.vercel.app/api/check-watch' 
