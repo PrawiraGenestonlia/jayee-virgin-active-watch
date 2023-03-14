@@ -46,7 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	try {
 		if (req.method === 'GET') {
 			const data = await getWatchList()
-			if (process.env.FORCE_SEND_STATUS || data.notify) {
+			if (process.env.FORCE_SEND_STATUS !== 'false' || data.notify) {
 				if (toNotify.notify) {
 					console.log('Sending notification to telegram...')
 					await bot.telegram.sendMessage(process.env.BOT_CHAT_ID || '', JSON.stringify(data))
