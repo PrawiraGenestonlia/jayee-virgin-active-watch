@@ -1,10 +1,13 @@
-name: Cron job
-on:
+name: API Cron
+on: 
   schedule:
-    - cron: '*/5 * * * *'
+  - cron: '*/5 * * * *'
+
 jobs:
   cron:
+    name: API Cron
     runs-on: ubuntu-latest
+
     steps:
       - name: cron
         run: |
